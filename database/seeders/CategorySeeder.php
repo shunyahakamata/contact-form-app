@@ -20,7 +20,7 @@ class CategorySeeder extends Seeder
             'その他',
         ];
 
-        foreach ($caregoris as $category){
+        foreach ($caregoris as $category) {
             Category::create([
                 'content' => $category,
             ]);

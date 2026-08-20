@@ -20,10 +20,10 @@ class TagSeeder extends Seeder
             'その他',
         ];
 
-        foreach ($tags as $tag){
+        foreach ($tags as $tag) {
             Tag::create([
                 'name' => $tag,
             ]);
-        };
+        }
     }
 }

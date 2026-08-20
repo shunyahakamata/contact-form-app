@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->tinyInteger('gender');
             $table->string('email');
-            $table->string('tel',11);
+            $table->string('tel', 11);
             $table->string('address');
             $table->timestamps();
         });

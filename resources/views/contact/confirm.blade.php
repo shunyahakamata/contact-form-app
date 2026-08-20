@@ -123,19 +123,36 @@
                     @endforeach
                 @endif
                 <input type="hidden" name="detail" value="{{ $validated['detail'] }}">
+            </form>
+            <form action="/" method="get">
+                <input type="hidden" name="first_name" value="{{ $validated['first_name'] }}">
+                <input type="hidden" name="last_name" value="{{ $validated['last_name'] }}">
+                <input type="hidden" name="gender" value="{{ $validated['gender'] }}">
+                <input type="hidden" name="email" value="{{ $validated['email'] }}">
+                <input type="hidden" name="tel" value="{{ $validated['tel'] }}">
+                <input type="hidden" name="address" value="{{ $validated['address'] }}">
+                <input type="hidden" name="building" value="{{ $validated['building'] ?? '' }}">
+                <input type="hidden" name="category_id" value="{{ $validated['category_id'] }}">
 
+                @foreach ($validated['tag_ids'] ?? [] as $tagId)
+                    <input type="hidden" name="tag_ids[]" value="{{ $tagId }}">
+                @endforeach
+
+                <input type="hidden" name="detail" value="{{ $validated['detail'] }}">
+            </form>
+            
                 <!-- ボタン -->
-                <div class="flex justify-center gap-4 mt-10">
-                    <button type="submit"
+            <div class="flex justify-center items-center gap-4 mt-10">
+                <button type="submit"
                         class="px-16 py-3 bg-[#7d7470] hover:bg-[#6b5f57] border border-transparent rounded font-medium text-white transition">
                         送信
-                    </button>
-                    <button type="button" onclick="history.back()"
-                        class="px-8 py-3 text-[#6b5744] transition">
+                </button>
+
+                <button type="submit" 
+                        class="px-8 py-3 flex items-center justify-center text-[#6b5744] transition">
                         修正
-                    </button>
-                </div>
-            </form>
+                </button>
+            </div>
         </div>
     </div>
 </x-guest-layout>

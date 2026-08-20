@@ -73,10 +73,17 @@
 
 <!-- 電話番号 -->
 @php
-    $telParts = explode('-', old('tel', ''));
-    $tel1 = old('tel1', $telParts[0] ?? '');
-    $tel2 = old('tel2', $telParts[1] ?? '');
-    $tel3 = old('tel3', $telParts[2] ?? '');
+    $tel = old('tel', '');
+
+    if (strlen($tel) === 11) {
+        $tel1 = substr($tel, 0, 3);
+        $tel2 = substr($tel, 3, 4);
+        $tel3 = substr($tel, 7, 4);
+    } else {
+        $tel1 = $tel;
+        $tel2 = '';
+        $tel3 = '';
+    }
 @endphp
 <div class="grid grid-cols-3 gap-8 mb-4">
     <div class="col-span-1 flex items-center">
@@ -189,6 +196,10 @@
                 </label>
             @endforeach
         </div>
+
+        @error('tag_ids.*')
+                <div class="mt-1 text-sm text-red-600">{{ $message }}</div>
+        @enderror
     </div>
 </div>
 @endisset
