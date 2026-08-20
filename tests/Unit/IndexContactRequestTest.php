@@ -25,7 +25,7 @@ class IndexContactRequestTest extends TestCase
             'date' => '2026-08-20',
         ];
 
-        $request = new IndexContactRequest();
+        $request = new IndexContactRequest;
 
         $validator = Validator::make(
             $data,
@@ -41,7 +41,7 @@ class IndexContactRequestTest extends TestCase
             'gender' => 9,
         ];
 
-        $request = new IndexContactRequest();
+        $request = new IndexContactRequest;
 
         $validator = Validator::make(
             $data,

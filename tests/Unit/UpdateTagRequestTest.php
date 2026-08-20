@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Http\Requests\UpdateTagRequest;
 use App\Models\Tag;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
@@ -29,7 +30,7 @@ class UpdateTagRequestTest extends TestCase
         );
 
         $request->setRouteResolver(function () use ($tag) {
-            return tap(Route::getRoutes()->match($request = \Illuminate\Http\Request::create("/test/tags/{$tag->id}", 'GET')), function ($route) use ($tag) {
+            return tap(Route::getRoutes()->match($request = Request::create("/test/tags/{$tag->id}", 'GET')), function ($route) use ($tag) {
                 $route->setParameter('tag', $tag);
             });
         });
@@ -62,7 +63,7 @@ class UpdateTagRequestTest extends TestCase
         );
 
         $request->setRouteResolver(function () use ($tag) {
-            return tap(Route::getRoutes()->match($request = \Illuminate\Http\Request::create("/test/tags/{$tag->id}", 'GET')), function ($route) use ($tag) {
+            return tap(Route::getRoutes()->match($request = Request::create("/test/tags/{$tag->id}", 'GET')), function ($route) use ($tag) {
                 $route->setParameter('tag', $tag);
             });
         });

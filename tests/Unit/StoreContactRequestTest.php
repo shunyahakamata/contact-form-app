@@ -12,6 +12,7 @@ use Tests\TestCase;
 class StoreContactRequestTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic unit test example.
      */
@@ -38,7 +39,7 @@ class StoreContactRequestTest extends TestCase
             'detail' => 'お問い合わせ内容です',
         ];
 
-        $request = new StoreContactRequest();
+        $request = new StoreContactRequest;
 
         $validator = Validator::make(
             $data,
@@ -47,7 +48,7 @@ class StoreContactRequestTest extends TestCase
 
         $this->assertTrue($validator->passes());
     }
-    
+
     public function test_invalid_tel_fails_validation(): void
     {
         $category = Category::create([
@@ -71,7 +72,7 @@ class StoreContactRequestTest extends TestCase
             'detail' => 'お問い合わせ内容です',
         ];
 
-        $request = new StoreContactRequest();
+        $request = new StoreContactRequest;
 
         $validator = Validator::make(
             $data,

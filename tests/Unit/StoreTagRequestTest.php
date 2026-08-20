@@ -14,7 +14,7 @@ class StoreTagRequestTest extends TestCase
 
     public function test_valid_tag_name_passes_validation(): void
     {
-        $request = new StoreTagRequest();
+        $request = new StoreTagRequest;
 
         $validator = Validator::make(
             ['name' => '質問'],
@@ -26,7 +26,7 @@ class StoreTagRequestTest extends TestCase
 
     public function test_empty_tag_name_fails_validation(): void
     {
-        $request = new StoreTagRequest();
+        $request = new StoreTagRequest;
 
         $validator = Validator::make(
             ['name' => ''],
@@ -39,7 +39,7 @@ class StoreTagRequestTest extends TestCase
 
     public function test_tag_name_over_50_characters_fails_validation(): void
     {
-        $request = new StoreTagRequest();
+        $request = new StoreTagRequest;
 
         $validator = Validator::make(
             ['name' => str_repeat('あ', 51)],
@@ -55,7 +55,7 @@ class StoreTagRequestTest extends TestCase
             'name' => '質問',
         ]);
 
-        $request = new StoreTagRequest();
+        $request = new StoreTagRequest;
 
         $validator = Validator::make(
             ['name' => '質問'],
