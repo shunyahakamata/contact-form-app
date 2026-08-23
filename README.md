@@ -30,6 +30,8 @@
 - FormRequestによるバリデーション
 - Unit Test
 - Feature Test
+- CSVエクスポート
+- 公開APIによるお問い合わせCRUD
 
 ## ER図
 
@@ -218,7 +220,15 @@ sail bin pint --test
 
 ## APIエンドポイント一覧
 
-公開APIは応用機能のため未実装です。
+| Method | Endpoint | 概要 |
+| --- | --- | --- |
+| GET | /api/v1/contacts | お問い合わせ一覧取得・検索・ページネーション |
+| GET | /api/v1/contacts/{id} | お問い合わせ詳細取得 |
+| POST | /api/v1/contacts | お問い合わせ新規作成 |
+| PUT | /api/v1/contacts/{id} | お問い合わせ更新 |
+| DELETE | /api/v1/contacts/{id} | お問い合わせ削除 |
+
+公開APIに認証は不要です。
 
 ## 開発環境URL
 

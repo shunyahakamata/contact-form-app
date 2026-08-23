@@ -34,3 +34,5 @@ Route::put('/admin/tags/{tag}', [TagController::class, 'update'])
     ->middleware('auth');
 Route::delete('/admin/tags/{tag}', [TagController::class, 'destroy'])
     ->middleware('auth');
+Route::get('/contacts/export', [ContactController::class, 'export'])
+    ->middleware('auth');
